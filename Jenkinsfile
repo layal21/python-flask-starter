@@ -5,8 +5,8 @@ pipeline {
         DOCKER_IMAGE = 'lay21/flask-starter'
     }
 
-
-
+    stages{
+        
         stage('Install Dependencies') {
             steps {
                 script {
@@ -58,6 +58,8 @@ pipeline {
                 }
             }
         }
+    }
+
     }
     post {
         always {
