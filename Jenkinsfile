@@ -2,15 +2,10 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'lay21/flask-startere'
+        DOCKER_IMAGE = 'lay21/flask-starter'
     }
 
-    stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/layal21/python-flask-starter.git'
-            }
-        }
+
 
         stage('Install Dependencies') {
             steps {
