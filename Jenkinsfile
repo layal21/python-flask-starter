@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Install Python dependencies
-                    sh 'pip install -r requirements.txt'
+                    bat 'pip install -r requirements.txt'
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Run your tests (e.g., using pytest)
-                    sh 'pytest'
+                    bat 'pytest'
                 }
             }
         }
