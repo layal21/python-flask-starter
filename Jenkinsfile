@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'lay21/flask-starter'
+        PATH = "C:\\Python39;C:\\Python39\\Scripts;${env.PATH}"
     }
 
     stages{
