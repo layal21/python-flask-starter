@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Install Python dependencies
-                    bat 'pip install -r requirements.txt'
+                    bat 'python -m pip install -r requirements.txt'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Run your tests (e.g., using pytest)
-                    bat 'pytest'
+                    bat 'python -m pytest'
                 }
             }
         }
@@ -38,7 +38,7 @@ pipeline {
                     bat '''
                     echo Logging in to DockerHub...
                     docker login -u %DOCKER_USER% -p %DOCKER_PASS%
-                    docker push yourdockerhubusername/myflaskapp
+                    docker push %DOCKER_IMAGE%
                     '''
                 }
             }
