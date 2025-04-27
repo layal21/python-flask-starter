@@ -10,7 +10,7 @@ pipeline {
         
         stage('Install Dependencies') {
            steps {
-                bat '''
+                sh '''
 
                     python -m pip install --upgrade pip
                     python -m pip install -r requirements.txt
@@ -20,7 +20,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat '''
+                sh '''
 
                     python -m pytest
                 '''
@@ -29,14 +29,14 @@ pipeline {
 
          stage('Docker Build') {
             steps {
-                bat 'docker build -t lay21/flask-starter .'
+                sh 'docker build -t lay21/flask-starter .'
             }
         }
 
         stage('Docker Push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    bat '''
+                    sh '''
                     echo Logging in to DockerHub...
                     docker login -u %DOCKER_USER% -p %DOCKER_PASS%
                     docker push %DOCKER_IMAGE%
@@ -47,7 +47,7 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 script {
-                    bat "docker run -d -p 5000:5000 %DOCKER_IMAGE%:%BUILD_NUMBER%"
+                    sh "docker run -d -p 5000:5000 %DOCKER_IMAGE%:%BUILD_NUMBER%"
                 }
             }
         }
@@ -56,7 +56,7 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 script {
-                    bat "docker run -d -p 5000:5000 %DOCKER_IMAGE%:%BUILD_NUMBER%"
+                    sh "docker run -d -p 5000:5000 %DOCKER_IMAGE%:%BUILD_NUMBER%"
                 }
             }
         }
