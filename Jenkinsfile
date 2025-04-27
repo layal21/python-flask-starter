@@ -13,8 +13,8 @@ pipeline {
                 bat '''
                     set PYTHONHOME=%PYTHON_HOME%
                     set PYTHONPATH=%PYTHON_PATH%
-                    %PYTHON_HOME%\\python.exe -m pip install --upgrade pip
-                    %PYTHON_HOME%\\python.exe -m pip install -r requirements.txt
+                    "%PYTHON_HOME%\\python.exe" -m pip install --upgrade pip
+                    "%PYTHON_HOME%\\python.exe" -m pip install -r requirements.txt
                 '''
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                 bat '''
                     set PYTHONHOME=%PYTHON_HOME%
                     set PYTHONPATH=%PYTHON_PATH%
-                    %PYTHON_HOME%\\python.exe -m pytest
+                    "%PYTHON_HOME%\\python.exe "-m pytest
                 '''
             }
         }
