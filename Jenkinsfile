@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Install Python dependencies
-                    bat '"C:\\Python312\\python.exe" -m pip install -r requirements.txt'
+                    bat '"C:\\Python312" -m pip install -r requirements.txt'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Run your tests (e.g., using pytest)
-                    bat '"C:\\Python312\\python.exe" -m pytest'
+                    bat '"C:\\Python312" -m pytest'
                 }
             }
         }
