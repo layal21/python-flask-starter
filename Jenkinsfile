@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'lay21/flask-starter'
-        PATH = "C:\\Python39;C:\\Python39\\Scripts;${env.PATH}"
+        // PATH = "C:\\Python39;C:\\Python39\\Scripts;${env.PATH}"
     }
 
     stages{
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Install Python dependencies
-                    bat 'python -m pip install -r requirements.txt'
+                    bat '"C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" -m pip install -r requirements.txt'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Run your tests (e.g., using pytest)
-                    bat 'python -m pytest'
+                    bat '"C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" -m pytest'
                 }
             }
         }
