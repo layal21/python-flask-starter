@@ -11,10 +11,9 @@ pipeline {
         stage('Install Dependencies') {
            steps {
                 bat '''
-                    set PYTHONHOME=%PYTHON_HOME%
-                    set PYTHONPATH=%PYTHON_PATH%
-                    "%PYTHON_HOME%\\python.exe" -m pip install --upgrade pip
-                    "%PYTHON_HOME%\\python.exe" -m pip install -r requirements.txt
+
+                    python -m pip install --upgrade pip
+                    python -m pip install -r requirements.txt
                 '''
             }
         }
@@ -22,9 +21,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat '''
-                    set PYTHONHOME=%PYTHON_HOME%
-                    set PYTHONPATH=%PYTHON_PATH%
-                    "%PYTHON_HOME%\\python.exe"-m pytest
+
+                    python -m pytest
                 '''
             }
         }
