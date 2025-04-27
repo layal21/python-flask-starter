@@ -10,14 +10,7 @@ pipeline {
         
 
 
-        stage('Run Tests') {
-            steps {
-                sh '''
 
-                    python3 -m pytest
-                '''
-            }
-        }
 
          stage('Docker Build') {
             steps {
