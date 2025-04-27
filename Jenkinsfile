@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'lay21/flask-starter'
-        // PATH = "C:\\Python39;C:\\Python39\\Scripts;${env.PATH}"
+        // PATH = "C:\\python339;C:\\python339\\Scripts;${env.PATH}"
     }
 
     stages{
@@ -12,8 +12,8 @@ pipeline {
            steps {
                 sh '''
 
-                    python -m pip install --upgrade pip
-                    python -m pip install -r requirements.txt
+                    python3 -m pip install --upgrade pip
+                    python3 -m pip install -r requirements.txt
                 '''
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh '''
 
-                    python -m pytest
+                    python3 -m pytest
                 '''
             }
         }
