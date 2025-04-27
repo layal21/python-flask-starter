@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Install Python dependencies
-                    bat '"C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" -m pip install -r requirements.txt'
+                    bat '"C:\\Python312\\python.exe" -m pip install -r requirements.txt'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Run your tests (e.g., using pytest)
-                    bat '"C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" -m pytest'
+                    bat '"C:\\Python312\\python.exe" -m pytest'
                 }
             }
         }
