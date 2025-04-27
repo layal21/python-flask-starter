@@ -9,20 +9,23 @@ pipeline {
     stages{
         
         stage('Install Dependencies') {
-            steps {
-                script {
-                    // Install Python dependencies
-                    bat '"C:\\Python312" -m pip install -r requirements.txt'
-                }
+           steps {
+                bat '''
+                    set PYTHONHOME=
+                    set PYTHONPATH=
+                    C:\\Python312\\python.exe -m pip install --upgrade pip
+                    C:\\Python312\\python.exe -m pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                script {
-                    // Run your tests (e.g., using pytest)
-                    bat '"C:\\Python312" -m pytest'
-                }
+                bat '''
+                    set PYTHONHOME=
+                    set PYTHONPATH=
+                    C:\\Python312\\python.exe -m pytest
+                '''
             }
         }
 
