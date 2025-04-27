@@ -24,7 +24,7 @@ pipeline {
                 bat '''
                     set PYTHONHOME=%PYTHON_HOME%
                     set PYTHONPATH=%PYTHON_PATH%
-                    "%PYTHON_HOME%\\python.exe "-m pytest
+                    "%PYTHON_HOME%\\python.exe"-m pytest
                 '''
             }
         }
