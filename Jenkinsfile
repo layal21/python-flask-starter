@@ -4,6 +4,8 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'lay21/flask-starter'
         // PATH = "C:\\Python39;C:\\Python39\\Scripts;${env.PATH}"
+        PYTHON_HOME = "${env.PYTHON_HOME}" // comes from Jenkins env
+        PYTHON_PATH = "${env.PYTHON_PATH}"
     }
 
     stages{
